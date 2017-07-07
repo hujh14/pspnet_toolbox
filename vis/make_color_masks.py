@@ -5,7 +5,7 @@ from vis_image import ImageVisualizer
 
 project = "street_view"
 output_dir = "color_mask"
-config = utils.get_data_config(project)
+config = utils.get_config(project)
 im_list = utils.open_im_list(project)
 
 
