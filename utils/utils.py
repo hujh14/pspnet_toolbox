@@ -18,15 +18,15 @@ PATH = os.path.dirname(__file__)
 
 def get_config(project):
     with open(os.path.join(PATH, "data_config.json"), 'r') as f:
-        data_config = json.load(f)
-        config = data_config[project]
+        all_configs = json.load(f)
+        config = all_configs[project]
         return config
 
 # Can also be project
 def open_im_list(txt_im_list):
     if ".txt" not in txt_im_list:
         project = txt_im_list
-        CONFIG = get_data_config(project)
+        CONFIG = get_config(project)
         txt_im_list = CONFIG["im_list"]
 
     im_list = [line.rstrip() for line in open(txt_im_list, 'r')]
