@@ -1,0 +1,5 @@
+.pyc
+.DS_store
+
+run/pspnet_prediction_tmp/*
+vis/tmp/*
