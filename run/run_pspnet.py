@@ -31,15 +31,13 @@ root_maxprob = os.path.join(root_result, 'max_prob')
 root_allprob = os.path.join(root_result, 'all_prob')
 
 
+for im in im_list:
+    print im
 
-
-for fn_im in im_list:
-    print fn_im
-
-    fn_maxprob = os.path.join(root_maxprob, fn_im.replace('.jpg', '.h5'))
-    fn_mask = os.path.join(root_mask, fn_im.replace('.jpg', '.png'))
-    fn_prob = os.path.join(root_prob, fn_im)
-    fn_allprob = os.path.join(root_allprob, fn_im.replace('.jpg', '.h5'))
+    fn_maxprob = os.path.join(root_maxprob, im.replace('.jpg', '.h5'))
+    fn_mask = os.path.join(root_mask, im.replace('.jpg', '.png'))
+    fn_prob = os.path.join(root_prob, im)
+    fn_allprob = os.path.join(root_allprob, im.replace('.jpg', '.h5'))
 
     if os.path.exists(fn_maxprob):
         print "Already done."
@@ -56,7 +54,7 @@ for fn_im in im_list:
         os.makedirs(os.path.dirname(fn_allprob))
 
     try:
-        image = utils.get_file(fn_im, CONFIG, ftype="im")
+        image = utils.get_file(im, CONFIG, ftype="im")
     except:
         print "Unable to load image. Skipping..."
         continue
