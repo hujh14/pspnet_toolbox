@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.join(CAFFE_ROOT, 'python'))
 import caffe
 
 WEIGHTS = '/data/vision/torralba/segmentation/places/PSPNet/evaluation/model/pspnet50_ADE20K.caffemodel'
+#WEIGHTS = '/data/vision/oliva/scenedataset/scaleplaces/ScalePlaces/phase1/run/snapshot/'
 MODEL_INFERENCE = 'models/pspnet50_ADE20K_473.prototxt'
 #MODEL_INFERENCE = 'models/pspnet_sigmoid.prototxt'
 
