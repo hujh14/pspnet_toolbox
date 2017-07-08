@@ -3,3 +3,5 @@
 
 run/pspnet_prediction_tmp/*
 vis/tmp/*
+vis/color_mask/*
+
