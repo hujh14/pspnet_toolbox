@@ -11,6 +11,8 @@ sys.path.insert(0, os.path.join(CAFFE_ROOT, 'python'))
 import caffe
 
 WEIGHTS = '/data/vision/torralba/segmentation/places/PSPNet/evaluation/model/pspnet50_ADE20K.caffemodel'
+MODEL_INFERENCE = 'models/pspnet50_ADE20K_473.prototxt'
+#MODEL_INFERENCE = 'models/pspnet_sigmoid.prototxt'
 
 class PSPNet:
     def __init__(self, DEVICE=0):
@@ -20,7 +22,6 @@ class PSPNet:
         SEED = 3
         random.seed(SEED)
 
-        MODEL_INFERENCE = 'models/pspnet50_ADE20K_473.prototxt'
         self.test_net = caffe.Net(MODEL_INFERENCE, WEIGHTS, caffe.TEST)
 
     def sliding_window(self, image):
