@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-p", required=True, help="Project name")
 parser.add_argument('--id', default=0,type=int)
 parser.add_argument('--local', action='store_true', default=False)
+parser.add_argument("-o", help="Output dir")
 args = parser.parse_args()
 
 project = args.p
@@ -24,6 +25,8 @@ root_images = CONFIG["images"]
 root_result = CONFIG["pspnet_prediction"]
 if args.local:
     root_result = "pspnet_prediction_tmp/"
+if args.o:
+    root_result = args.o
 
 root_mask = os.path.join(root_result, 'category_mask')
 root_prob = os.path.join(root_result, 'prob_mask')
@@ -58,7 +61,9 @@ for im in im_list:
     except:
         print "Unable to load image. Skipping..."
         continue
+
     probs = pspnet.sliding_window(image)
+    # probs is 150 x h x w
 
     # calculate output
     pred_mask = np.argmax(probs, axis=0) + 1
